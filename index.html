@@ -381,8 +381,8 @@
         <span class="music-label" id="audio-status-text">Play Music</span>
     </div>
 
-    <audio id="music-stream" loop>
-        <source src="https://assets.mixkit.co/active_storage/sfx/2568/2568-84.wav" type="audio/wav">
+    <audio id="music-stream" loop autoplay>
+        <source src="aishu.mp3" type="audio/mpeg">
     </audio>
 
     <!-- ── ELEGANT CINEMATIC HERO ── -->
@@ -625,12 +625,29 @@
         const wheel = document.getElementById('music-wheel');
         const text = document.getElementById('audio-status-text');
 
-        trigger.addEventListener('click', () => {
+        function playMusic() {
+            audio.play().then(() => {
+                wheel.classList.add('playing');
+                text.innerText = "Playing";
+                // Remove listeners once playback starts
+                window.removeEventListener('click', playMusic);
+                window.removeEventListener('scroll', playMusic);
+                window.removeEventListener('touchstart', playMusic);
+            }).catch(err => console.log("Autoplay blocked by browser policy, waiting for user gesture"));
+        }
+
+        // Bypassing browser autoplay blocks using active touch/scroll gesture triggers
+        window.addEventListener('click', playMusic);
+        window.addEventListener('scroll', playMusic);
+        window.addEventListener('touchstart', playMusic);
+
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation(); // Avoid triggering playMusic twice
             if (audio.paused) {
                 audio.play().then(() => {
                     wheel.classList.add('playing');
                     text.innerText = "Playing";
-                }).catch(err => console.log("User interaction required for play"));
+                }).catch(err => console.log("Failed to play audio"));
             } else {
                 audio.pause();
                 wheel.classList.remove('playing');
