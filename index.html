@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Gowdham! ✨</title>
+    <title>GOWDHAM | The Celebration ✨</title>
     <!-- Google Fonts for Ultra-Premium Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Outfit:wght@200;400;600;800&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Outfit:wght@200;400;600;800&family=Pinyon+Script&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-dark: #05060b;
+            --bg-dark: #030407;
             --accent-cyan: #00F2FE;
+            --accent-gold: #D69E2E;
             --accent-pink: #FF007F;
             --glow-color: rgba(0, 242, 254, 0.25);
-            --glass-bg: rgba(10, 15, 30, 0.45);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(7, 10, 19, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.05);
             --font-cinzel: 'Cinzel', serif;
             --font-outfit: 'Outfit', sans-serif;
             --font-cursive: 'Pinyon Script', cursive;
@@ -34,11 +35,11 @@
         body {
             font-family: var(--font-outfit), sans-serif;
             background-color: var(--bg-dark);
-            color: #f3f5f9;
+            color: #e2e8f0;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 5% 15%, rgba(0, 242, 254, 0.15) 0%, transparent 45%),
-                radial-gradient(circle at 95% 85%, rgba(255, 0, 127, 0.12) 0%, transparent 45%);
+                radial-gradient(circle at 10% 20%, rgba(0, 242, 254, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(214, 158, 46, 0.08) 0%, transparent 50%);
             background-attachment: fixed;
         }
 
@@ -51,6 +52,7 @@
             height: 100vh;
             z-index: 0;
             pointer-events: none;
+            opacity: 0.6;
         }
 
         /* ──── PREMIUM MUSIC PLAYER FLOATER ──── */
@@ -81,7 +83,7 @@
             width: 28px;
             height: 28px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink));
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -102,73 +104,51 @@
             color: #e2e8f0;
         }
 
-        /* ──── ELEGANT INTRO HERO ──── */
+        /* ──── CINEMATIC POSTER HERO ──── */
         header {
             position: relative;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
-            text-align: center;
-            padding: 20px;
+            padding: 80px 20px;
             z-index: 1;
+            overflow: hidden;
+            background: linear-gradient(to top, var(--bg-dark) 10%, transparent 60%);
         }
 
-        .ambient-glow-circle {
+        .poster-bg {
             position: absolute;
-            width: 450px;
-            height: 450px;
-            background: radial-gradient(circle, rgba(0, 242, 254, 0.12) 0%, transparent 70%);
-            pointer-events: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/nolan_bday_hero.jpg') no-repeat center center;
+            background-size: cover;
+            z-index: -2;
+            filter: brightness(0.75) contrast(1.1);
+        }
+
+        .poster-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 30%, rgba(3, 4, 7, 0.9) 95%);
             z-index: -1;
-            filter: blur(40px);
-        }
-
-        .title-pre {
-            font-size: clamp(14px, 2.5vw, 18px);
-            font-weight: 400;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            color: var(--accent-cyan);
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
-        }
-
-        .title-main {
-            font-family: var(--font-cinzel);
-            font-size: clamp(3rem, 7vw, 6rem);
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: 4px;
-            color: #fff;
-            text-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
-        }
-
-        .name-wrapper {
-            display: block;
-            font-size: clamp(4rem, 10vw, 8.5rem);
-            font-family: var(--font-cursive);
-            font-weight: 400;
-            color: var(--accent-pink);
-            background: linear-gradient(135deg, #00F2FE 0%, #FF007F 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-top: 10px;
-            padding: 10px 0;
-            animation: gentleFloat 5s ease-in-out infinite;
         }
 
         .scroll-hint {
-            position: absolute;
-            bottom: 40px;
+            margin-top: 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 8px;
-            color: #8F9CAE;
+            color: #a0aec0;
             font-size: 11px;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             animation: bounceIndicator 2.5s infinite;
             cursor: pointer;
             text-transform: uppercase;
@@ -191,17 +171,19 @@
         .section-header h2 {
             font-family: var(--font-cinzel);
             font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            letter-spacing: 3px;
+            font-weight: 800;
+            letter-spacing: 4px;
             color: #fff;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
         }
 
         .section-header p {
-            font-size: 13px;
-            letter-spacing: 2px;
+            font-size: 12px;
+            letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--accent-cyan);
-            margin-top: 10px;
+            margin-top: 12px;
         }
 
         .grid-layout {
@@ -218,7 +200,7 @@
             padding: 16px 16px 28px 16px;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             transform-style: preserve-3d;
             perspective: 1200px;
             cursor: pointer;
@@ -227,8 +209,8 @@
 
         .polaroid-card:hover {
             transform: translateY(-8px) scale(1.03);
-            border-color: rgba(0, 242, 254, 0.4);
-            box-shadow: 0 20px 45px rgba(0, 242, 254, 0.15);
+            border-color: rgba(0, 242, 254, 0.3);
+            box-shadow: 0 20px 45px rgba(0, 242, 254, 0.12);
         }
 
         .polaroid-img-frame {
@@ -257,7 +239,7 @@
 
         .polaroid-caption h4 {
             font-family: var(--font-cinzel);
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             color: #fff;
             letter-spacing: 1px;
@@ -265,8 +247,8 @@
 
         .polaroid-caption p {
             font-family: var(--font-cursive);
-            font-size: 20px;
-            color: var(--accent-pink);
+            font-size: 22px;
+            color: var(--accent-gold);
             margin-top: 6px;
         }
 
@@ -280,20 +262,20 @@
         }
 
         .envelope {
-            background: rgba(10, 15, 30, 0.65);
+            background: rgba(7, 10, 19, 0.8);
             border: 1px solid var(--glass-border);
             border-radius: 28px;
             padding: 45px;
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
             position: relative;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
         .envelope:hover {
-            border-color: rgba(255, 0, 127, 0.35);
-            box-shadow: 0 35px 70px rgba(255, 0, 127, 0.1);
+            border-color: rgba(214, 158, 46, 0.25);
+            box-shadow: 0 35px 70px rgba(214, 158, 46, 0.08);
         }
 
         .envelope::before {
@@ -303,7 +285,7 @@
             left: 0;
             width: 4px;
             height: 100%;
-            background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-pink));
+            background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-gold));
         }
 
         .envelope-header {
@@ -317,7 +299,7 @@
 
         .sender-tag {
             font-family: var(--font-cursive);
-            font-size: 26px;
+            font-size: 28px;
             color: var(--accent-cyan);
             letter-spacing: 1px;
         }
@@ -325,7 +307,7 @@
         .date-tag {
             font-size: 11px;
             font-weight: 600;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             color: #8F9CAE;
             text-transform: uppercase;
         }
@@ -333,7 +315,7 @@
         .envelope-body {
             font-size: 17.5px;
             line-height: 1.9;
-            color: rgba(243, 245, 249, 0.9);
+            color: rgba(243, 245, 249, 0.85);
             min-height: 200px;
         }
 
@@ -343,11 +325,11 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink));
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
             color: #fff;
             padding: 16px 36px;
             border-radius: 50px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 3px;
@@ -355,24 +337,19 @@
             cursor: pointer;
             margin: 40px auto 0 auto;
             display: block;
-            box-shadow: 0 10px 30px rgba(255, 0, 127, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.25);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .celebrate-button:hover {
             transform: scale(1.04) translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 0, 127, 0.55);
+            box-shadow: 0 15px 40px rgba(0, 242, 254, 0.45);
         }
 
         /* ──── KEYFRAME ANIMATIONS ──── */
         @keyframes rotateNode {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
-        }
-
-        @keyframes gentleFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-12px) rotate(1deg); }
         }
 
         @keyframes bounceIndicator {
@@ -393,10 +370,10 @@
 </head>
 <body>
 
-    <!-- Space Background -->
+    <!-- Constellation Space Particles -->
     <canvas id="constellation-canvas"></canvas>
 
-    <!-- Music Floater -->
+    <!-- Music Control Floater -->
     <div class="music-floater" id="audio-trigger">
         <div class="music-node" id="music-wheel">
             <i class="fa-solid fa-music"></i>
@@ -404,21 +381,16 @@
         <span class="music-label" id="audio-status-text">Play Music</span>
     </div>
 
-    <!-- Music asset -->
     <audio id="music-stream" loop>
         <source src="https://assets.mixkit.co/active_storage/sfx/2568/2568-84.wav" type="audio/wav">
     </audio>
 
-    <!-- ── INTRO HERO ── -->
+    <!-- ── ELEGANT CINEMATIC HERO ── -->
     <header>
-        <div class="ambient-glow-circle"></div>
-        <div class="title-pre">A Birthday Note for</div>
-        <h1 class="title-main">
-            Happy Birthday
-            <span class="name-wrapper">Gowdham</span>
-        </h1>
+        <div class="poster-bg"></div>
+        <div class="poster-overlay"></div>
         <div class="scroll-hint" onclick="document.getElementById('moments').scrollIntoView({behavior: 'smooth'})">
-            <span>Scroll to Open</span>
+            <span>Explore Timeline</span>
             <i class="fa-solid fa-chevron-down"></i>
         </div>
     </header>
@@ -426,8 +398,8 @@
     <!-- ── MEMORIES SECTION ── -->
     <section class="gallery-container" id="moments">
         <div class="section-header">
-            <h2>Moments Together</h2>
-            <p>Our Captured Timeline</p>
+            <h2>Captured Moments</h2>
+            <p>Chronological Timeline</p>
         </div>
         
         <div class="grid-layout">
@@ -495,7 +467,7 @@
         </div>
     </section>
 
-    <!-- ── WISH ENVELOPE ── -->
+    <!-- ── ENVELOPE / LETTER SECTION ── -->
     <section class="wishes-container">
         <div class="envelope">
             <div class="envelope-header">
@@ -511,11 +483,10 @@
         </div>
     </section>
 
-    <!-- Confetti Script Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <script>
-        // --- 1. Dynamic Particle Constellations ---
+        // Particle constellation simulation
         const canvas = document.getElementById('constellation-canvas');
         const ctx = canvas.getContext('2d');
         let points = [];
@@ -529,13 +500,13 @@
 
         function initPoints() {
             points = [];
-            const count = Math.floor((canvas.width * canvas.height) / 9000);
+            const count = Math.floor((canvas.width * canvas.height) / 9500);
             for (let i = 0; i < count; i++) {
                 points.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    vx: (Math.random() - 0.5) * 0.4,
-                    vy: (Math.random() - 0.5) * 0.4,
+                    vx: (Math.random() - 0.5) * 0.35,
+                    vy: (Math.random() - 0.5) * 0.35,
                     radius: Math.random() * 1.5
                 });
             }
@@ -544,7 +515,6 @@
         function animateConstellation() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             
-            // Draw points
             points.forEach(p => {
                 p.x += p.vx;
                 p.y += p.vy;
@@ -554,11 +524,10 @@
 
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(0, 242, 254, 0.45)';
+                ctx.fillStyle = 'rgba(0, 242, 254, 0.4)';
                 ctx.fill();
             });
 
-            // Draw connections
             for (let i = 0; i < points.length; i++) {
                 for (let j = i + 1; j < points.length; j++) {
                     const dx = points[i].x - points[j].x;
@@ -582,7 +551,7 @@
         setCanvasSize();
         animateConstellation();
 
-        // --- 2. 3D Polaroid Parallax Tilt ---
+        // 3D Polaroid Parallax Tilt
         const polaroids = document.querySelectorAll('.polaroid-card');
         polaroids.forEach(card => {
             card.addEventListener('mousemove', (e) => {
@@ -596,7 +565,7 @@
             });
         });
 
-        // --- 3. Dynamic Typewriter Letter ---
+        // Dynamic Typewriter Letter
         const messageBody = "Dear Gowdham,\n\nOn this very special day, I want to wish you the absolute happiest of birthdays! 🚀\n\nMay this year unfold new avenues of success, absolute joy, and wonderful adventures in your life. Thank you for being such a wonderful presence. Let's celebrate all the beautiful memories we've made so far and look forward to the many more to come.\n\nKeep smiling bright, and hope you have a beautiful year ahead! 🎂✨";
         const targetElement = document.getElementById('typing-board');
         let cursorIndex = 0;
@@ -624,7 +593,7 @@
         }, { threshold: 0.1 });
         sectionObserver.observe(document.querySelector('.wishes-container'));
 
-        // --- 4. Celebration Trigger ---
+        // Celebration Trigger
         const triggerBtn = document.getElementById('confetti-button');
         triggerBtn.addEventListener('click', () => {
             const timeLimit = 4 * 1000;
@@ -650,7 +619,7 @@
             }());
         });
 
-        // --- 5. Audio Controls ---
+        // Audio Controls
         const audio = document.getElementById('music-stream');
         const trigger = document.getElementById('audio-trigger');
         const wheel = document.getElementById('music-wheel');
