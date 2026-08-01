@@ -124,7 +124,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('images/cinematic_couple_facing.jpg') no-repeat center center;
+            background: url('images/cinematic_couple_front.jpg') no-repeat center center;
             background-size: cover;
             z-index: -2;
             filter: brightness(0.75) contrast(1.1);
@@ -381,7 +381,7 @@
         <span class="music-label" id="audio-status-text">Play Music</span>
     </div>
 
-    <audio id="music-stream" loop autoplay>
+    <audio id="music-stream" loop autoplay preload="auto">
         <source src="aishu.mp3" type="audio/mpeg">
     </audio>
 
@@ -633,7 +633,9 @@
                 window.removeEventListener('click', playMusic);
                 window.removeEventListener('scroll', playMusic);
                 window.removeEventListener('touchstart', playMusic);
-            }).catch(err => console.log("Autoplay blocked by browser policy, waiting for user gesture"));
+                window.removeEventListener('mousemove', playMusic);
+                window.removeEventListener('touchmove', playMusic);
+            }).catch(err => console.log("Autoplay blocked by browser policy, waiting for user gesture", err));
         }
 
         // Bypassing browser autoplay blocks using active touch/scroll gesture triggers
